@@ -1,0 +1,74 @@
+{ :simlayers {:symbol-mode {:key :right_option}}
+  :profiles {:Default {:default true
+             :delay 150}}
+  :devices {
+    :sculpt [{:vendor_id 1118, :product_id 1957 }]
+    :laptop [{:vendor_id 1452, :product_id 832  } {:vendor_id 1452, :product_id 641  }]
+    :ergo [{:vendor_id 1118, :product_id 2092}]
+  }
+  :applications {:chrome ["^com\\.google\\.Chrome$"]}
+  :main [
+      {:des "caps lock to escape" :rules [[:caps_lock :escape]]}
+      {:des "vim emulation"
+       :rules [
+            [:!Th :left_arrow]
+            [:!Tj :down_arrow]
+            [:!Tk :up_arrow]
+            [:!Tl :right_arrow]
+       ]}
+      {:des "Symbol Layer"
+       :rules [:symbol-mode
+               ;; Make sure all numpad symbols are available on the left hand
+               [:2 :!S2] ;; @
+               [:3 :!S3] ;; #
+               [:4 :hyphen] ;; -
+               [:5 :!Sequal_sign] ;; +
+               [:6 :!S8] ;; *
+
+               [:w :!Sopen_bracket] ;; {
+               [:e :!Sclose_bracket] ;; }
+               [:r :!S5] ;; % 
+               [:t :!S7] ;; &
+
+               [:a :!S6] ;; ^ 
+               [:s :!S9] ;; (
+               [:d :!S0] ;; )
+               [:f :!S4] ;; $ 
+               [:g :!Shyphen] ;; _
+
+               [:x :open_bracket] ;; [
+               [:c :close_bracket] ;; ]
+               [:v :!S1] ;; !
+               [:b :equal_sign] ;; =
+      ]}
+      {:des "Internal Keyboard" 
+       :rules [:laptop
+               [:right_option :delete_or_backspace]
+      ]}
+      {:des "Microsoft Ergonomic Keyboard" 
+       :rules [:ergo
+               [:right_option :delete_or_backspace]
+      ]}
+      {:des "Microsoft Sculpt Keyboard"
+       :rules [:sculpt
+              ;; TODO: figure out how to remap modifiers in complex modifications. Combining modifiers doesn't play nice
+              ;; with complex mods.
+              ;;  [:left_command :left_option]
+              ;;  [:left_option :left_command]
+               [:right_option :delete_or_backspace]
+      ]}
+      {:des "JIRA shortcuts"
+       :rules [
+        ;; This rule links to a JIRA ticket when you highlight its code in a google doc.
+        [:!Ty [:!Cc :!Ck] :chrome 
+              {:delayed {
+                :invoked [:h :t :t :p :s :!Ssemicolon :slash :slash 
+                          :j :i :r :a :period :m :o :n :g :o :d :b :period :o :r :g :slash 
+                          :b :r :o :w :s :e :slash 
+                          :!Cv] 
+                :cancelled []}
+              }
+        ] 
+       ]}
+  ]
+} 
