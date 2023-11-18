@@ -9,6 +9,10 @@
     # Auto upgrade nix package and the daemon service.
     services.nix-daemon.enable = true;
     services.karabiner-elements.enable = true;
+
+    services.yabai.enable = true;
+    services.skhd.enable = true;
+
     # nix.package = pkgs.nix;
 
     # Necessary for using flakes on this system.
@@ -23,6 +27,11 @@
     system.stateVersion = 4;
 
     system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
+    system.defaults.dock.autohide = true;
+
+    system.defaults.NSGlobalDomain.InitialKeyRepeat = 20;
+    system.defaults.NSGlobalDomain.KeyRepeat = 2;
+
 
     # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";

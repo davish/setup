@@ -1,0 +1,6 @@
+yabai -m config layout bsp
+yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus on
+
+yabai -m config window_placement first_child
+yabai -m config auto_balance on
