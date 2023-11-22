@@ -32,8 +32,6 @@
     system.defaults.NSGlobalDomain.InitialKeyRepeat = 20;
     system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
-
-    # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";
 
     users.users.davish = {

@@ -38,11 +38,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
     ".config/skhd/skhdrc" = {
       source = dotfiles/skhdrc;
       onChange = "nix run nixpkgs#killall -- skhd";
@@ -57,12 +52,6 @@
       source = dotfiles/karabiner.edn;
       onChange = "nix run nixpkgs#goku";
     };
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
 
   # You can also manage environment variables but you will have to manually
@@ -97,8 +86,9 @@
       gcam = "git commit -am";
       gp = "git push";
       gpup = "git push -u origin $(git rev-parse --abbrev-ref HEAD)";
+      gst = "git status";
 
-      dr = "darwin-rebuild switch --flake ~/.config/nix";
+      drs = "darwin-rebuild switch --flake ~/.config/nix";
 
       dev = "nix develop -c $SHELL";
     };
