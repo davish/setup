@@ -54,16 +54,6 @@
     };
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/davish/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
@@ -100,24 +90,5 @@
   };
 
   
-  programs.vscode =  {
-    enable = true;
-    extensions = [
-      pkgs.vscode-extensions.vscodevim.vim
-      pkgs.vscode-extensions.bbenoist.nix 
-      pkgs.vscode-extensions.vspacecode.vspacecode
-      pkgs.vscode-extensions.vspacecode.whichkey
-    ];
-    
-    userSettings = let vSpaceCodeLaunch = {
-        "before" = [ "<space>" ];
-        "commands" = [ "vspacecode.space" ];
-    }; in {
-      "vim.easymotion" = true;
-      "vim.useSystemClipboard" = true;
-      "vim.normalModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch ];
-      "vim.visualModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch ];
-      "workbench.colorTheme" = "Nord Light";
-    };
-  };
+  programs.vscode =  (import ./dotfiles/vscode.nix) pkgs // { enable = true; };
 }
