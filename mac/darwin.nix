@@ -1,5 +1,8 @@
 { pkgs, ... }: 
 
+let 
+    homebrewConfig = import ./homebrew.nix;
+in
 {
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
@@ -40,10 +43,6 @@
         home = "/Users/davish";
     };
 
-    homebrew.enable = true;
-    homebrew.casks = [
-        # "visual-studio-code"
-    ];
-    homebrew.brews = [];
-    homebrew.onActivation.cleanup = "zap";
+    
+    homebrew = import ./homebrew.nix // { enable = true; };
 }
