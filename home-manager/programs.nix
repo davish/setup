@@ -8,7 +8,7 @@
         enable = true;
         userName = "Davis Haupt";
         userEmail = "me@davishaupt.com";
-        ignores = [ ".DS_Store" ];
+        ignores = [ ".DS_Store" ".direnv" ];
         difftastic = {
             enable = true;
             display = "inline";

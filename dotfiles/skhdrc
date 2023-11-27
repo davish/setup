@@ -32,4 +32,4 @@ shift + alt - k : yabai -m window --resize top:0:20
 shift + alt - l : yabai -m window --resize left:20:0
 
 # open a terminal window
-cmd - return : kitty -1
+cmd - return : kitty -1 -d ~
