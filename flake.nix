@@ -23,6 +23,7 @@
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
              home-manager.users.davish = import ./home.nix;
+             home-manager.verbose = true;
          }
       ];
     };

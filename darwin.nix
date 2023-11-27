@@ -17,6 +17,7 @@
 
     # Necessary for using flakes on this system.
     nix.settings.experimental-features = "nix-command flakes";
+    nixpkgs.config.allowUnfree = true;
 
     # Create /etc/zshrc that loads the nix-darwin environment.
     programs.zsh.enable = true;  # default shell on catalina
@@ -41,7 +42,8 @@
 
     homebrew.enable = true;
     homebrew.casks = [
-        "visual-studio-code"
+        # "visual-studio-code"
     ];
     homebrew.brews = [];
+    homebrew.onActivation.cleanup = "zap";
 }

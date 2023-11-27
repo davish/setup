@@ -57,18 +57,5 @@
               ;;  [:left_option :left_command]
                [:right_option :delete_or_backspace]
       ]}
-      {:des "JIRA shortcuts"
-       :rules [
-        ;; This rule links to a JIRA ticket when you highlight its code in a google doc.
-        [:!Ty [:!Cc :!Ck] :chrome 
-              {:delayed {
-                :invoked [:h :t :t :p :s :!Ssemicolon :slash :slash 
-                          :j :i :r :a :period :m :o :n :g :o :d :b :period :o :r :g :slash 
-                          :b :r :o :w :s :e :slash 
-                          :!Cv] 
-                :cancelled []}
-              }
-        ] 
-       ]}
   ]
 } 
