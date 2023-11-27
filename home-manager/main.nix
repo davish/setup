@@ -36,6 +36,10 @@
       source = ../dotfiles/karabiner.edn;
       onChange = "nix run nixpkgs#goku";
     };
+
+    ".config/kitty/themes/Nord Light.conf" = {
+      source = ../dotfiles/nord-light-theme.kitty.conf;
+    };
   };
 
   home.sessionVariables = {

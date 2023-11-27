@@ -34,14 +34,38 @@ pkgs: {
             "type" = "command";
             "command" = "workbench.action.showEditorsInActiveGroup";
         }
-    ];
-  };
+        {
+          "keys" = "o";
+          "name" = "Open Application...";
+          "type" = "bindings";
+          "bindings" = [
+            {
+                "key" = "t";
+                "name" = "Open Terminal";
+                "type" = "command";
+                "command" = "workbench.action.terminal.toggleTerminal";
+            }
+          ];
+        }
+      ];
+    };
+    # workbench.action.focusActiveEditorGroup
 
-  keybindings = [
-    {
-        key = "space";
-        command = "vspacecode.space";
-        when = "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus";
-    }
-  ];
+    keybindings = [
+        {
+            key = "space";
+            command = "vspacecode.space";
+            when = "((activeEditorGroupEmpty && focusedView == '') || sideBarFocus) && !whichkeyActive && !inputFocus";
+        }
+        {
+            key = "shift+cmd+;";
+            command = "workbench.action.focusActiveEditorGroup";
+            when = "terminalFocus";
+        }
+        {
+            key = "shift+cmd+'";
+            command = "workbench.action.terminal.toggleTerminal";
+            when = "terminalFocus" ;
+        }
+    ];
 }
