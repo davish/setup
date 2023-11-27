@@ -9,12 +9,12 @@
   :applications {:chrome ["^com\\.google\\.Chrome$"]}
   :main [
       {:des "caps lock to escape" :rules [[:caps_lock :escape]]}
-      {:des "vim emulation"
+      {:des "vim emulation with left option"
        :rules [
-            [:!Th :left_arrow]
-            [:!Tj :down_arrow]
-            [:!Tk :up_arrow]
-            [:!Tl :right_arrow]
+            [:!Oh :left_arrow]
+            [:!Oj :down_arrow]
+            [:!Ok :up_arrow]
+            [:!Ol :right_arrow]
        ]}
       {:des "Symbol Layer"
        :rules [:symbol-mode

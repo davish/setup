@@ -46,7 +46,8 @@
         enable = true;
         shellIntegration.enableZshIntegration = true;
 
-        # The kitty.themes setting doesn't support
+        # The kitty.themes setting doesn't support custom themes, 
+        # so just include the config.
         extraConfig = ''
             include themes/Nord Light.conf
             '';

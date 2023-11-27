@@ -49,7 +49,6 @@ pkgs: {
         }
       ];
     };
-    # workbench.action.focusActiveEditorGroup
 
     keybindings = [
         {
@@ -58,7 +57,7 @@ pkgs: {
             when = "((activeEditorGroupEmpty && focusedView == '') || sideBarFocus) && !whichkeyActive && !inputFocus";
         }
         {
-            key = "shift+cmd+;";
+            key = "cmd+escape";
             command = "workbench.action.focusActiveEditorGroup";
             when = "terminalFocus";
         }

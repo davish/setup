@@ -33,5 +33,3 @@ shift + alt - l : yabai -m window --resize left:20:0
 
 # open a terminal window
 cmd - return : kitty -1
-
-cmd + shift + ctrl - return : kitty -1 sh -c "darwin-rebuild switch --flake ~/.config/nix"
