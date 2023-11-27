@@ -23,17 +23,17 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/skhd/skhdrc" = {
-      source = dotfiles/skhdrc;
+      source = ../dotfiles/skhdrc;
       onChange = "nix run nixpkgs#killall -- skhd";
     };
 
     ".config/yabai/yabairc" = {
-      source = dotfiles/yabairc;
+      source = ../dotfiles/yabairc;
       onChange = "nix run nixpkgs#killall -- yabai";
     };
 
     ".config/karabiner.edn" = {
-      source = dotfiles/karabiner.edn;
+      source = ../dotfiles/karabiner.edn;
       onChange = "nix run nixpkgs#goku";
     };
   };
@@ -43,37 +43,5 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "Davis Haupt";
-    userEmail = "me@davishaupt.com";
-    extraConfig  = {
-      init.defaultBranch = "main";
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      gcam = "git commit -am";
-      gp = "git push";
-      gpup = "git push -u origin $(git rev-parse --abbrev-ref HEAD)";
-      gst = "git status";
-      gd = "git diff";
-
-      drs = "darwin-rebuild switch --flake ~/.config/nix";
-
-      dev = "nix develop -c $SHELL";
-    };
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  
-  programs.vscode =  (import ./dotfiles/vscode.nix) pkgs // { enable = true; };
+  programs = (import ./programs.nix { pkgs = pkgs; }) // { home-manager.enable = true; };
 }

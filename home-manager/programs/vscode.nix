@@ -12,6 +12,7 @@ pkgs: {
   }; in {
     "workbench.editor.showTabs" = false;
     "workbench.activityBar.location" = "hidden";
+    "files.autoSave" = "onFocusChange";
 
     "workbench.colorTheme" = "Nord Light";
 

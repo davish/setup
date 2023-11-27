@@ -17,12 +17,12 @@
     # $ darwin-rebuild build --flake .#davish-desktop
     darwinConfigurations."davish-desktop" = nix-darwin.lib.darwinSystem {
       modules = [ 
-         ./mac/darwin.nix
+         ./darwin/main.nix
 
          home-manager.darwinModules.home-manager {
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
-             home-manager.users.davish = import ./home-manager.nix;
+             home-manager.users.davish = import ./home-manager/main.nix;
              home-manager.verbose = true;
          }
       ];

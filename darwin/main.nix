@@ -42,7 +42,6 @@ in
         name = "davish";
         home = "/Users/davish";
     };
-
     
     homebrew = import ./homebrew.nix // { enable = true; };
 }
