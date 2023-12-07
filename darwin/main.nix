@@ -42,6 +42,14 @@ in
         name = "davish";
         home = "/Users/davish";
     };
+
+    system.defaults.CustomUserPreferences = {
+        "com.google.Chrome" = {
+            "NSUserKeyEquivalents" = {
+                "Open Location..." = "@d";
+            };
+        };
+    };
     
     homebrew = import ./homebrew.nix // { enable = true; };
 }
