@@ -4,6 +4,7 @@ pkgs: {
     pkgs.vscode-extensions.bbenoist.nix 
     pkgs.vscode-extensions.vspacecode.vspacecode
     pkgs.vscode-extensions.vspacecode.whichkey
+    pkgs.vscode-extensions.astro-build.astro-vscode
   ];
   
   userSettings = let vSpaceCodeLaunch = {
