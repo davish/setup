@@ -7,15 +7,15 @@ shift + alt - 0 : yabai -m space --balance
 # make floating window fill left-half of screen
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
-cmd - h : yabai -m window --focus west || yabai -m display --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east || yabai -m display --focus east
+ctrl - h : yabai -m window --focus west || yabai -m display --focus west
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - l : yabai -m window --focus east || yabai -m display --focus east
 
-shift + cmd - h : yabai -m window --swap west || (yabai -m window --display west; yabai -m display --focus west)
-shift + cmd - j : yabai -m window --swap south 
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east || (yabai -m window --display east; yabai -m display --focus east)
+cmd + ctrl - h : yabai -m window --swap west || (yabai -m window --display west; yabai -m display --focus west)
+cmd + ctrl - j : yabai -m window --swap south 
+cmd + ctrl - k : yabai -m window --swap north
+cmd + ctrl - l : yabai -m window --swap east || (yabai -m window --display east; yabai -m display --focus east)
 
 shift + alt - m : yabai -m display --focus recent
 shift + alt - return : yabai -m window --swap largest

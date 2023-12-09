@@ -1,5 +1,7 @@
 {
-    onActivation.cleanup = "zap";
+    onActivation.cleanup = "uninstall";
     brews = [];
-    casks = [];
+    casks = [
+        "raycast"
+    ];
 }

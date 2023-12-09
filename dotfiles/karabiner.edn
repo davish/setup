@@ -1,6 +1,8 @@
 { :simlayers {:symbol-mode {:key :right_option}}
   :profiles {:Default {:default true
-             :delay 150}}
+             :sim 25
+             :delay 10
+             :alone 250}}
   :devices {
     :sculpt [{:vendor_id 1118, :product_id 1957 }]
     :laptop [{:vendor_id 1452, :product_id 832  } {:vendor_id 1452, :product_id 641  }]
@@ -8,7 +10,9 @@
   }
   :applications {:chrome ["^com\\.google\\.Chrome$"]}
   :main [
-      {:des "caps lock to escape" :rules [[:caps_lock :escape]]}
+      {:des "caps lock to escape" :rules [
+        [:caps_lock :escape]
+      ]}
       {:des "vim emulation with left option"
        :rules [
             [:!Oh :left_arrow]
@@ -48,6 +52,9 @@
       {:des "Microsoft Ergonomic Keyboard" 
        :rules [:ergo
                [:right_option :delete_or_backspace]
+               [:left_option :left_command]
+               [:application :left_option]
+               [:left_command :left_control]
       ]}
       {:des "Microsoft Sculpt Keyboard"
        :rules [:sculpt
