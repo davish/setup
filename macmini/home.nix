@@ -4,12 +4,12 @@
     imports = [
         ../home-manager/common.nix
     ];
-    
-    home.file.".config/skhd/skhdrc" = {
-      text = (builtins.readFile ../dotfiles/skhdrc/general) + "\n" + (builtins.readFile ../dotfiles/skhdrc/yabai);
-      onChange = "${pkgs.killall}/bin/killall skhd";
-    };
 
+    services.skhd = {
+      enable = true;
+      components = [ ../dotfiles/skhdrc/general ../dotfiles/skhdrc/yabai ];
+    };
+    
     home.file.".config/yabai/yabairc" = {
       source = ../dotfiles/yabairc;
       onChange = "${pkgs.killall}/bin/killall yabai";
