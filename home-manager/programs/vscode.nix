@@ -27,6 +27,7 @@ pkgs: {
     "files.autoSave" = "onFocusChange";
 
     "workbench.colorTheme" = "Nord Light";
+    "editor.accessibilitySupport" = "off";
 
     "vim.easymotion" = true;
     "vim.useSystemClipboard" = true;

@@ -1,8 +1,5 @@
 { pkgs, ... }: 
 
-let 
-    homebrewConfig = import ./homebrew.nix;
-in
 {
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
@@ -12,9 +9,6 @@ in
     # Auto upgrade nix package and the daemon service.
     services.nix-daemon.enable = true;
     services.karabiner-elements.enable = true;
-
-    services.yabai.enable = true;
-    services.skhd.enable = true;
 
     # nix.package = pkgs.nix;
 
@@ -37,11 +31,6 @@ in
     system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
     nixpkgs.hostPlatform = "aarch64-darwin";
-
-    users.users.davish = {
-        name = "davish";
-        home = "/Users/davish";
-    };
 
     system.defaults.CustomUserPreferences = {
         "com.google.Chrome" = {
