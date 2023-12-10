@@ -24,7 +24,7 @@
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
              home-manager.verbose = true;
-             home-manager.users.davish = import ./home-manager/main.nix { useYabai = true; };
+             home-manager.users.davish = import ./macmini/home.nix;
          }
       ];
     };
@@ -38,7 +38,7 @@
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
              home-manager.verbose = true;
-             home-manager.users.davishaupt = import ./home-manager/main.nix { useYabai = false; };
+             home-manager.users.davishaupt = import ./macbook/home.nix;
          }
       ];
     };
