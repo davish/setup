@@ -17,18 +17,28 @@
     # $ darwin-rebuild build --flake .#davish-desktop
     darwinConfigurations."davish-desktop" = nix-darwin.lib.darwinSystem {
       modules = [ 
-         ./darwin/main.nix
+         ./hosts/macmini/configuration.nix
 
          home-manager.darwinModules.home-manager {
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
-             home-manager.users.davish = import ./home-manager/main.nix;
              home-manager.verbose = true;
+             home-manager.users.davish = import ./hosts/macmini/home.nix;
          }
       ];
     };
 
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."davish-desktop".pkgs;
+    darwinConfigurations."Daviss-MacBook-Air" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+         ./hosts/macbook/configuration.nix
+
+         home-manager.darwinModules.home-manager {
+             home-manager.useGlobalPkgs = true;
+             home-manager.useUserPackages = true;
+             home-manager.verbose = true;
+             home-manager.users.davishaupt = import ./hosts/macbook/home.nix;
+         }
+      ];
+    };
   };
 }

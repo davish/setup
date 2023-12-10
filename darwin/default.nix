@@ -1,21 +1,27 @@
 { pkgs, ... }: 
 
-let 
-    homebrewConfig = import ./homebrew.nix;
-in
+let my-emacs = (import ./emacs.nix {pkgs = pkgs;}); in
 {
-    # List packages installed in system profile. To search by name, run:
-    # $ nix-env -qaP | grep wget
-    environment.systemPackages = [ pkgs.vim];
+    environment.systemPackages = with pkgs; [ 
+        binutils # native-comp needs 'as', provided by this
 
-    # TODO: add raycast to login items from this configuration. Something with launchd.user.agents.raycast. Need to 
+        my-emacs
+
+        ## Doom dependencies not covered above
+        (ripgrep.override {withPCRE2 = true;})
+        gnutls # for TLS connectivity
+    ];
+
+    homebrew = import ./homebrew.nix // { enable = true; };
 
     # Auto upgrade nix package and the daemon service.
     services.nix-daemon.enable = true;
     services.karabiner-elements.enable = true;
 
-    services.yabai.enable = true;
-    services.skhd.enable = true;
+    services.emacs = {
+        enable = true;
+        package = my-emacs;
+    };
 
     # nix.package = pkgs.nix;
 
@@ -39,18 +45,13 @@ in
 
     nixpkgs.hostPlatform = "aarch64-darwin";
 
-    users.users.davish = {
-        name = "davish";
-        home = "/Users/davish";
+    system.defaults.CustomUserPreferences = {
+        # "com.google.Chrome" = {
+        #     "NSUserKeyEquivalents" = {
+        #         "Open Location..." = "@d";
+        #     };
+        # };
     };
 
-    system.defaults.CustomUserPreferences = {
-        "com.google.Chrome" = {
-            "NSUserKeyEquivalents" = {
-                "Open Location..." = "@d";
-            };
-        };
-    };
-    
-    homebrew = import ./homebrew.nix // { enable = true; };
+    services.skhd.enable = true;
 }

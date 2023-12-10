@@ -1,7 +1,15 @@
 {
     onActivation.cleanup = "uninstall";
-    brews = [];
+    taps = [
+
+    ];
+    brews = [
+        
+    ];
     casks = [
         "raycast"
     ];
+    masApps = {
+        Fantastical = 975937182;
+    };
 }
