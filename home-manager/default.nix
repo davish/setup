@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ./programs.nix
+    ./programs
   ];
 
   options.services.skhd = {
@@ -17,7 +17,6 @@ in
     };
   };
   config = {
-    programs.home-manager.enable = true;
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
 
@@ -29,6 +28,9 @@ in
     # want to update the value, then make sure to first check the Home Manager
     # release notes.
     home.stateVersion = "23.05"; # Please read the comment before changing.
+
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -63,9 +65,6 @@ in
       # EDITOR = "emacs";
     };
 
-    # Let Home Manager install and manage itself.
-    # programs = (import ./programs.nix { pkgs = pkgs; }) // { home-manager.enable = true; };
-
     home.activation.install-doom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if ! [ -d "$HOME/.emacs.d" ]; then
         $DRY_RUN_CMD ${
@@ -73,7 +72,5 @@ in
         } clone $VERBOSE_ARG --depth=1 --single-branch "https://github.com/doomemacs/doomemacs.git" "$HOME/.emacs.d";
       fi
     '';
-
-    
   };
 }

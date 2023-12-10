@@ -3,7 +3,7 @@
 # https://nix-community.github.io/home-manager/options.html
 {
     imports = [
-        ./programs/vscode.nix
+        ./vscode.nix
     ];
 
     programs = {
