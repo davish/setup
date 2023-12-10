@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, home-manager, ... }:
 
 let isDarwin = pkgs.stdenv.isDarwin; in
 {
@@ -23,11 +23,13 @@ let isDarwin = pkgs.stdenv.isDarwin; in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    
-
     ".config/kitty/themes/Nord Light.conf" = {
       source = ../dotfiles/nord-light-theme.kitty.conf;
     };
+
+    # "/Applications/Emacs.app" = {
+    #   source = /usr/local/opt/emacs-mac/Emacs.app;
+    # };
   } // (if isDarwin then {
     ".config/karabiner.edn" = {
       source = ../dotfiles/karabiner.edn;
@@ -41,4 +43,12 @@ let isDarwin = pkgs.stdenv.isDarwin; in
 
   # Let Home Manager install and manage itself.
   programs = (import ./programs.nix { pkgs = pkgs; }) // { home-manager.enable = true; };
+
+  home.activation.install-doom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if ! [ -d "$HOME/.emacs.d" ]; then
+      $DRY_RUN_CMD ${
+        lib.getExe pkgs.git
+      } clone $VERBOSE_ARG --depth=1 --single-branch "https://github.com/doomemacs/doomemacs.git" "$HOME/.emacs.d";
+    fi
+  '';
 }

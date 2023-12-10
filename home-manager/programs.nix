@@ -33,6 +33,9 @@
 
             dev = "nix develop -c $SHELL";
         };
+        envExtra = ''
+            export PATH=$PATH:$HOME/.emacs.d/bin
+        '';
     };
 
     direnv = {

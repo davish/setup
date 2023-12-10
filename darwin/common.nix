@@ -1,7 +1,19 @@
 { pkgs, ... }: 
 
-{
-    environment.systemPackages = [ pkgs.vim ];
+let
+    myEmacs = with pkgs; ((emacsPackagesFor emacs-macport).emacsWithPackages (epkgs: [
+        epkgs.vterm
+    ]));
+in {
+    environment.systemPackages = with pkgs; [ 
+        binutils # native-comp needs 'as', provided by this
+
+        myEmacs
+
+        ## Doom dependencies not covered above
+        (ripgrep.override {withPCRE2 = true;})
+        gnutls # for TLS connectivity
+    ];
 
     homebrew = import ./homebrew.nix // { enable = true; };
 

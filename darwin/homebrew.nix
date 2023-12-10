@@ -1,7 +1,14 @@
 {
     onActivation.cleanup = "zap";
-    brews = [];
-    casks = [];
+    taps = [
+
+    ];
+    brews = [
+        
+    ];
+    casks = [
+
+    ];
     masApps = {
         Fantastical = 975937182;
     };
