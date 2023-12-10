@@ -1,4 +1,6 @@
-{ config, pkgs, ... }:
+{ useYabai }: 
+
+{ pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -22,6 +24,15 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/karabiner.edn" = {
+      source = ../dotfiles/karabiner.edn;
+      onChange = "nix run nixpkgs#goku";
+    };
+
+    ".config/kitty/themes/Nord Light.conf" = {
+      source = ../dotfiles/nord-light-theme.kitty.conf;
+    };
+  } // (if useYabai then {
     ".config/skhd/skhdrc" = {
       source = ../dotfiles/skhdrc;
       onChange = "nix run nixpkgs#killall -- skhd";
@@ -31,16 +42,7 @@
       source = ../dotfiles/yabairc;
       onChange = "nix run nixpkgs#killall -- yabai";
     };
-
-    ".config/karabiner.edn" = {
-      source = ../dotfiles/karabiner.edn;
-      onChange = "nix run nixpkgs#goku";
-    };
-
-    ".config/kitty/themes/Nord Light.conf" = {
-      source = ../dotfiles/nord-light-theme.kitty.conf;
-    };
-  };
+  } else {});
 
   home.sessionVariables = {
     # EDITOR = "emacs";

@@ -18,13 +18,13 @@
     darwinConfigurations."davish-desktop" = nix-darwin.lib.darwinSystem {
       modules = [ 
          ./darwin/common.nix
-         ./darwin/macmini.nix
+         ./macmini/darwin.nix
 
          home-manager.darwinModules.home-manager {
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
-             home-manager.users.davish = import ./home-manager/main.nix;
              home-manager.verbose = true;
+             home-manager.users.davish = import ./home-manager/main.nix { useYabai = true; };
          }
       ];
     };
@@ -32,13 +32,13 @@
     darwinConfigurations."Daviss-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [ 
          ./darwin/common.nix
-         ./darwin/macbook.nix
+         ./macbook/darwin.nix
 
          home-manager.darwinModules.home-manager {
              home-manager.useGlobalPkgs = true;
              home-manager.useUserPackages = true;
-             home-manager.users.davishaupt = import ./home-manager/main.nix;
              home-manager.verbose = true;
+             home-manager.users.davishaupt = import ./home-manager/main.nix { useYabai = false; };
          }
       ];
     };
