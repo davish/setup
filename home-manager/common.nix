@@ -27,6 +27,10 @@ let isDarwin = pkgs.stdenv.isDarwin; in
       source = ../dotfiles/nord-light-theme.kitty.conf;
     };
 
+    ".doom.d" = {
+      source = ../dotfiles/doom;
+    };
+
     # "/Applications/Emacs.app" = {
     #   source = /usr/local/opt/emacs-mac/Emacs.app;
     # };
