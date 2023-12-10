@@ -1,6 +1,9 @@
 { pkgs, config, lib, home-manager, ... }:
 
-let isDarwin = pkgs.stdenv.isDarwin; in
+let 
+  isDarwin = pkgs.stdenv.isDarwin;
+  emacs = (import ../darwin/emacs.nix) { pkgs = pkgs; };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -29,6 +32,7 @@ let isDarwin = pkgs.stdenv.isDarwin; in
 
     ".doom.d" = {
       source = ../dotfiles/doom;
+      onChange = "${emacs}/bin/emacsclient -e '(doom/reload)'";
     };
 
     # "/Applications/Emacs.app" = {

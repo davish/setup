@@ -1,15 +1,17 @@
+{ pkgs, ... }:
+
 {
     imports = [
         ../home-manager/common.nix
     ];
     
     home.file.".config/skhd/skhdrc" = {
-      source = ../dotfiles/skhdrc;
-      onChange = "nix run nixpkgs#killall -- skhd";
+      text = (builtins.readFile ../dotfiles/skhdrc/general) + "\n" + (builtins.readFile ../dotfiles/skhdrc/yabai);
+      onChange = "${pkgs.killall}/bin/killall skhd";
     };
 
     home.file.".config/yabai/yabairc" = {
       source = ../dotfiles/yabairc;
-      onChange = "nix run nixpkgs#killall -- yabai";
+      onChange = "${pkgs.killall}/bin/killall yabai";
     };
 }
