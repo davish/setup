@@ -17,7 +17,6 @@
     # $ darwin-rebuild build --flake .#davish-desktop
     darwinConfigurations."davish-desktop" = nix-darwin.lib.darwinSystem {
       modules = [ 
-         ./darwin/common.nix
          ./hosts/macmini/darwin.nix
 
          home-manager.darwinModules.home-manager {
@@ -31,8 +30,7 @@
 
     darwinConfigurations."Daviss-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [ 
-         ./darwin/common.nix
-         ./macbook/darwin.nix
+         ./hosts/macbook/darwin.nix
 
          home-manager.darwinModules.home-manager {
              home-manager.useGlobalPkgs = true;

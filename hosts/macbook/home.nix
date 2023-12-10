@@ -2,11 +2,11 @@
 
 {
     imports = [
-        ../home-manager/common.nix
+        ../../home-manager/common.nix
     ];
 
     services.skhd = {
       enable = true;
-      components = [ ../dotfiles/skhdrc/general ];
+      components = [ ../../dotfiles/skhdrc/general ];
     };
 }
