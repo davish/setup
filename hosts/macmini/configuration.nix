@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ../../darwin/common.nix
+        ../../darwin
     ];
     users.users.davish = {
         name = "davish";

@@ -5,6 +5,10 @@ let
   emacs = (import ../darwin/emacs.nix) { pkgs = pkgs; };
 in
 {
+  imports = [
+    ./programs.nix
+  ];
+
   options.services.skhd = {
     enable = lib.mkEnableOption "skhd configuration";
     components = lib.mkOption {
@@ -13,6 +17,7 @@ in
     };
   };
   config = {
+    programs.home-manager.enable = true;
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
 
@@ -59,7 +64,7 @@ in
     };
 
     # Let Home Manager install and manage itself.
-    programs = (import ./programs.nix { pkgs = pkgs; }) // { home-manager.enable = true; };
+    # programs = (import ./programs.nix { pkgs = pkgs; }) // { home-manager.enable = true; };
 
     home.activation.install-doom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if ! [ -d "$HOME/.emacs.d" ]; then
