@@ -1,2 +1,4 @@
 # open a terminal window
 cmd - return : kitty -1 -d ~
+
+ctrl + shift - return : emacsclient -c

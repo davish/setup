@@ -12,18 +12,18 @@ ctrl - j : yabai -m window --focus south
 ctrl - k : yabai -m window --focus north
 ctrl - l : yabai -m window --focus east || yabai -m display --focus east
 
-cmd + ctrl - h : yabai -m window --swap west || (yabai -m window --display west; yabai -m display --focus west)
-cmd + ctrl - j : yabai -m window --swap south 
-cmd + ctrl - k : yabai -m window --swap north
-cmd + ctrl - l : yabai -m window --swap east || (yabai -m window --display east; yabai -m display --focus east)
+shift + ctrl - h : yabai -m window --swap west || (yabai -m window --display west; yabai -m display --focus west)
+shift + ctrl - j : yabai -m window --swap south 
+shift + ctrl - k : yabai -m window --swap north
+shift + ctrl - l : yabai -m window --swap east || (yabai -m window --display east; yabai -m display --focus east)
 
 shift + alt - m : yabai -m display --focus recent
 shift + alt - return : yabai -m window --swap largest
 
 shift + cmd - r : yabai -m window --toggle split
 
-alt - f : yabai -m window --toggle zoom-parent
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
+ctrl - f : yabai -m window --toggle zoom-parent
+shift + ctrl - f : yabai -m window --toggle zoom-fullscreen
 
 # increase window size
 shift + alt - h : yabai -m window --resize left:-20:0

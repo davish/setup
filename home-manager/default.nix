@@ -34,8 +34,9 @@ in
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
-    home.packages = [
-      pkgs.tmux
+    home.packages = with pkgs; [
+      tmux
+      htop
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -57,7 +58,7 @@ in
     } // (if isDarwin then {
       ".config/karabiner.edn" = {
         source = ../dotfiles/karabiner.edn;
-        onChange = "nix run nixpkgs#goku";
+        onChange = "${pkgs.goku}/bin/goku";
       };
     } else {});
 
