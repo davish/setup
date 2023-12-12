@@ -59,5 +59,7 @@
                 include themes/Nord Light.conf
                 '';
         };
+
+        gh.enable = true;
     };
 }

@@ -24,8 +24,11 @@ let my-emacs = (import ./emacs.nix {pkgs = pkgs;}); in
     # https://github.com/koekeishiya/yabai/issues/86#issuecomment-1615158207
     launchd.user.agents.emacs = {
         path = [config.environment.systemPath];
-        serviceConfig.ProgramArguments = [ "open" "-W" "-a" "Emacs" "--args" "--fg-daemon"];
-        serviceConfig.RunAtLoad = true;
+        serviceConfig = {
+            ProgramArguments = [ "open" "-W" "-a" "Emacs" "--args" "--fg-daemon"];
+            RunAtLoad = true;
+            KeepAlive = true;
+        };
     };
 
     # nix.package = pkgs.nix;
