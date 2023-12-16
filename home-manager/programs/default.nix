@@ -52,6 +52,7 @@
         kitty = {
             enable = true;
             shellIntegration.enableZshIntegration = true;
+            font.name = "JetBrains Mono";
 
             # The kitty.themes setting doesn't support custom themes, 
             # so just include the config.
