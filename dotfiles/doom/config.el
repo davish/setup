@@ -65,6 +65,8 @@
 (map! :leader "b f" #'projectile-find-file)
 (map! :localleader :n "e e" #'eval-last-sexp)
 
+(map! :leader :nv ";" #'comment-dwim)
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
