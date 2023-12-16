@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+ (setq user-full-name "Davis Haupt"
+       user-mail-address "me@davishaupt.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -36,12 +36,19 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; (map! :after org-mode :map org-mode-map 'override "s-j" #'org-shiftmetadown)
+(map! :after org :map org-mode-map
+      "s-h" #'org-shiftmetaleft
+      "s-j" #'org-metadown
+      "s-k" #'org-metaup
+      "s-l" #'org-shiftmetaright
+      "s-RET" #'org-meta-return)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
