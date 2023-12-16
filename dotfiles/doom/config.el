@@ -42,17 +42,28 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(setq doom-localleader-key ",")
+
+;; Map cmd-hjkl to arrow keys in most modes
 (map! "s-h" "<left>"
       "s-j" "<down>"
       "s-k" "<up>"
       "s-l" "<right>")
 
+;; In org-mode, map cmd-hjkl to moving around subtrees
 (map! :after org :map org-mode-map
       "s-h" #'org-shiftmetaleft
       "s-j" #'org-metadown
       "s-k" #'org-metaup
       "s-l" #'org-shiftmetaright
       "s-RET" #'org-meta-return)
+
+;; Make Doom more spacemacs-y: SPC SPC for commands, SPC b f for projectile-find-file
+;; (map! :leader "SPC" "M-x")
+(map! :leader :n "SPC" #'execute-extended-command)
+(map! :leader "b f" #'projectile-find-file)
+(map! :localleader :n "e e" #'eval-last-sexp)
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
