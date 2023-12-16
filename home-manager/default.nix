@@ -60,6 +60,7 @@ in
         source = ../dotfiles/karabiner.edn;
         onChange = "${pkgs.goku}/bin/goku";
       };
+
     } else {});
 
     home.sessionVariables = {
