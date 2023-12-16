@@ -3,4 +3,4 @@ ctrl - return : kitty -1 -d ~
 
 ctrl + shift - return : emacsclient -c -e "(select-frame-set-input-focus (selected-frame))"
 
-alt - t : emacsclient -c -e "(progn (select-frame-set-input-focus (selected-frame)) (org-capture))"
+alt - x : emacsclient -c -e "(progn (select-frame-set-input-focus (selected-frame)) (org-capture))"
