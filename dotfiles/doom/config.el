@@ -42,7 +42,11 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-;; (map! :after org-mode :map org-mode-map 'override "s-j" #'org-shiftmetadown)
+(map! "s-h" "<left>"
+      "s-j" "<down>"
+      "s-k" "<up>"
+      "s-l" "<right>")
+
 (map! :after org :map org-mode-map
       "s-h" #'org-shiftmetaleft
       "s-j" #'org-metadown
