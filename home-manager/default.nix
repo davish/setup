@@ -68,7 +68,7 @@ in
     } else {});
 
     home.sessionVariables = {
-      # EDITOR = "emacs";
+      EDITOR = "vim";
     };
 
     home.activation.install-doom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
