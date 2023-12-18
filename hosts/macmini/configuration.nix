@@ -20,7 +20,11 @@
     # denvercoder9 knows for sure:
     # https://github.com/koekeishiya/yabai/issues/86#issuecomment-1615158207
     launchd.user.agents.emacs = {
-        path = [config.environment.systemPath];
+        path = [
+            config.environment.systemPath
+            # Need to add the per-user path manually, per: https://github.com/LnL7/nix-darwin/issues/406
+            /etc/profiles/per-user/davish/bin
+        ];
         serviceConfig = {
             ProgramArguments = [ "open" "-W" "-a" "Emacs" "--args" "--fg-daemon"];
             RunAtLoad = true;
