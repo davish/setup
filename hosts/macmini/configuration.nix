@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, config, ... }:
 
 {
     imports = [
@@ -27,5 +27,4 @@
             KeepAlive = true;
         };
     };
-    home.file.".doom.d".onChange = "${emacs}/bin/emacsclient -e '(doom/reload)'";
 }
