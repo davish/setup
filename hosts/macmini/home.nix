@@ -7,7 +7,11 @@
 
     services.skhd = {
       enable = true;
-      components = [ ../../dotfiles/skhdrc/general ../../dotfiles/skhdrc/yabai ];
+      components = [
+        ../../dotfiles/skhdrc/general
+        ../../dotfiles/skhdrc/yabai
+        ../../dotfiles/skhdrc/emacsclient
+      ];
     };
     
     home.file.".config/yabai/yabairc" = {

@@ -52,7 +52,6 @@ in
 
       ".doom.d" = {
         source = ../dotfiles/doom;
-        onChange = "${emacs}/bin/emacsclient -e '(doom/reload)'";
       };
 
       ".config/skhd/skhdrc" = lib.mkIf config.services.skhd.enable {

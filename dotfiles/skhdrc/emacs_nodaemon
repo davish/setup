@@ -1,0 +1,4 @@
+# shortcuts to open emacs on systems without a running daemon.
+
+ctrl + shift - return : open -a Emacs --args --eval "(select-frame-set-input-focus (selected-frame))"
+alt - x : open -a Emacs --args --eval "(progn (select-frame-set-input-focus (selected-frame)) (org-capture))"

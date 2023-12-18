@@ -1,0 +1,4 @@
+# emacsclient shortcuts. make sure the daemon is running for these to work!
+ctrl + shift - return : emacsclient -c -e "(select-frame-set-input-focus (selected-frame))"
+
+alt - x : emacsclient -c -e "(progn (select-frame-set-input-focus (selected-frame)) (org-capture))"
