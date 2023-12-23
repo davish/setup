@@ -14,7 +14,7 @@ I'm also using Nix flakes -- I wish I knew enough about Nix to explain exactly w
 - `nix-darwin` default configuration lives in `darwin/`
 - `home-manager` default configuration lives in `home/`
 - host-specific overrides and functionality live in the `hosts/` directory. Each host has a `configuration.nix` file and a `home.nix` file.
-- dotfiles for specific applications can be found in the `dotfiles/` folder.
+- dotfiles for specific applications can be found in directories under `home/` alongside their home-manager configuration.
 
 ## Inspiration
 - [noctuid's emacs patches](https://github.com/noctuid/dotfiles/blob/master/nix/overlays/emacs.nix)
