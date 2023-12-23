@@ -73,7 +73,7 @@
               when = "((activeEditorGroupEmpty && focusedView == '') || sideBarFocus) && !whichkeyActive && !inputFocus";
           }
           {
-              key = "cmd+escape";
+              key = "shift+cmd+j";
               command = "workbench.action.focusActiveEditorGroup";
               when = "terminalFocus";
           }
