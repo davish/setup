@@ -8,8 +8,8 @@
     services.skhd = {
       enable = true;
       components = [
-        ../../home/skhd/configs/general
-        ../../home/skhd/configs/emacs_nodaemon
+        "general"
+        "emacs_nodaemon"
       ];
     };
 }

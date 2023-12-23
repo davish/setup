@@ -11,14 +11,12 @@ in
     services.skhd = {
       enable = true;
       components = [
-        ../../home/skhd/configs/general
-        ../../home/skhd/configs/yabai
-        ../../home/skhd/configs/emacsclient
+        "general"
+        "yabai"
+        "emacsclient"
       ];
     };
 
     services.yabai.enable = true;
-    
-    home.file.".doom.d".onChange = "${emacs}/bin/emacsclient -e '(doom/reload)'";
-
+    services.emacs-daemon.enable = true;
 }
