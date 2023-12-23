@@ -5,22 +5,20 @@ let
 in
 {
     imports = [
-        ../../home-manager
+        ../../home
     ];
 
     services.skhd = {
       enable = true;
       components = [
-        ../../dotfiles/skhdrc/general
-        ../../dotfiles/skhdrc/yabai
-        ../../dotfiles/skhdrc/emacsclient
+        ../../home/skhd/configs/general
+        ../../home/skhd/configs/yabai
+        ../../home/skhd/configs/emacsclient
       ];
     };
-    
-    home.file.".config/yabai/yabairc" = {
-      source = ../../dotfiles/yabairc;
-      onChange = "${pkgs.killall}/bin/killall yabai";
-    };
 
+    services.yabai.enable = true;
+    
     home.file.".doom.d".onChange = "${emacs}/bin/emacsclient -e '(doom/reload)'";
+
 }

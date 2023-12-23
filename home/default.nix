@@ -6,16 +6,14 @@ let
 in
 {
   imports = [
+    ./emacs
     ./programs
+    ./skhd
+    ./karabiner
+    ./kitty
+    ./yabai
   ];
 
-  options.services.skhd = {
-    enable = lib.mkEnableOption "skhd configuration";
-    components = lib.mkOption {
-      type = lib.types.listOf lib.types.path;
-      default = [ ];
-    };
-  };
   config = {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -48,23 +46,7 @@ in
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     home.file = {
-      ".config/kitty/themes/Nord Light.conf" = {
-        source = ../dotfiles/nord-light-theme.kitty.conf;
-      };
-
-      ".doom.d" = {
-        source = ../dotfiles/doom;
-      };
-
-      ".config/skhd/skhdrc" = lib.mkIf config.services.skhd.enable {
-        text = lib.strings.concatStrings (lib.strings.intersperse "\n" (map builtins.readFile config.services.skhd.components));
-        onChange = "${pkgs.killall}/bin/killall skhd";
-      };
     } // (if isDarwin then {
-      ".config/karabiner.edn" = {
-        source = ../dotfiles/karabiner.edn;
-        onChange = "${pkgs.goku}/bin/goku";
-      };
 
     } else {});
 
@@ -72,12 +54,6 @@ in
       EDITOR = "vim";
     };
 
-    home.activation.install-doom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      if ! [ -d "$HOME/.emacs.d" ]; then
-        $DRY_RUN_CMD ${
-          lib.getExe pkgs.git
-        } clone $VERBOSE_ARG --depth=1 --single-branch "https://github.com/doomemacs/doomemacs.git" "$HOME/.emacs.d";
-      fi
-    '';
+    
   };
 }
