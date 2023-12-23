@@ -102,3 +102,11 @@
 
 (after! projectile
   (when (file-exists-p "~/.projectile.el") (load "~/.projectile.el")))
+
+(define-derived-mode astro-mode web-mode "astro")
+(setq auto-mode-alist
+      (append '((".*\\.astro\\'" . astro-mode))
+              auto-mode-alist))
+
+(after! eglot
+  (add-to-list 'eglot-server-programs '(astro-mode . ("astro-ls" "--stdio"))))

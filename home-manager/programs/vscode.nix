@@ -24,7 +24,7 @@
         "before" = [ "<space>" ];
         "commands" = [ "vspacecode.space" ];
     }; in {
-      "workbench.editor.showTabs" = false;
+      "workbench.editor.showTabs" = "single";
       "workbench.activityBar.location" = "hidden";
       "files.autoSave" = "onFocusChange";
 

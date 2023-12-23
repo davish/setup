@@ -42,6 +42,7 @@ in
       jetbrains-mono
       (nerdfonts.override {fonts = [ "JetBrainsMono"]; })
       nodePackages.typescript-language-server
+      nodePackages."@astrojs/language-server"
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
