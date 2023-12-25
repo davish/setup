@@ -7,6 +7,7 @@
       pkgs.vscode-extensions.vspacecode.vspacecode
       pkgs.vscode-extensions.vspacecode.whichkey
       pkgs.vscode-extensions.astro-build.astro-vscode
+      pkgs.vscode-extensions.ocamllabs.ocaml-platform
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "nord-light";
@@ -20,10 +21,23 @@
       }
     ];
     
-    userSettings = let vSpaceCodeLaunch = {
-        "before" = [ "<space>" ];
-        "commands" = [ "vspacecode.space" ];
-    }; in {
+    userSettings = let 
+      vSpaceCodeLaunch = {
+          "before" = [ "<space>" ];
+          "commands" = [ "vspacecode.space" ];
+      }; 
+      vSpaceCodeMajorMode = {
+        "before" = [","];
+        "commands" = [
+          "vspacecode.space"
+          {
+            "command" = "whichkey.triggerKey";
+            "args" = "m";
+          }
+        ];
+      };
+
+    in {
       "workbench.editor.showTabs" = "single";
       "workbench.activityBar.location" = "hidden";
       "files.autoSave" = "onFocusChange";
@@ -34,8 +48,8 @@
 
       "vim.easymotion" = true;
       "vim.useSystemClipboard" = true;
-      "vim.normalModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch ];
-      "vim.visualModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch ];
+      "vim.normalModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch vSpaceCodeMajorMode ];
+      "vim.visualModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch vSpaceCodeMajorMode ];
 
       "vspacecode.bindingOverrides" = [
           {
