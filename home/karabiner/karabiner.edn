@@ -8,7 +8,10 @@
     :laptop [{:vendor_id 1452, :product_id 832  } {:vendor_id 1452, :product_id 641  }]
     :ergo [{:vendor_id 1118, :product_id 2092}]
   }
-  :applications {:chrome ["^com\\.google\\.Chrome$"]}
+  :applications {
+    :chrome ["^com\\.google\\.Chrome$"]
+    :vscode ["com.microsoft.VSCode"]
+  }
   :main [
       {:des "caps lock to escape" :rules [
         [:caps_lock :escape]
@@ -19,7 +22,16 @@
             [:!Oj :down_arrow]
             [:!Ok :up_arrow]
             [:!Ol :right_arrow]
-       ]}
+      ]}
+      {
+        :des "cmd+hjkl in terminal apps"
+        :rules [
+          [:!Ch :left_arrow :vscode]
+          [:!Cj :down_arrow :vscode]
+          [:!Ck :up_arrow :vscode]
+          [:!Cl :right_arrow :vscode]
+        ]
+      }
       {:des "Symbol Layer"
        :rules [:symbol-mode
                ;; Make sure all numpad symbols are available on the left hand

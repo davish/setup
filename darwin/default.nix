@@ -10,7 +10,6 @@ let my-emacs = (import ./emacs.nix {pkgs = pkgs;}); in
         ## Doom dependencies not covered above
         (ripgrep.override {withPCRE2 = true;})
         gnutls # for TLS connectivity
-
     ];
 
     homebrew = import ./homebrew.nix // { enable = true; };
