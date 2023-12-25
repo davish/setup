@@ -7,10 +7,11 @@ in
 {
   imports = [
     ./emacs
-    ./programs
-    ./skhd
     ./karabiner
     ./kitty
+    ./programs
+    ./skhd
+    ./vscode
     ./yabai
   ];
 
