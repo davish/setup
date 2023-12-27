@@ -2,13 +2,7 @@
 
 # https://nix-community.github.io/home-manager/options.html
 {
-    imports = [
-        ./vscode.nix
-    ];
-
     programs = {
-        vscode.enable = true;
-
         git = {
             enable = true;
             userName = "Davis Haupt";

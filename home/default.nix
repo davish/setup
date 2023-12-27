@@ -7,10 +7,11 @@ in
 {
   imports = [
     ./emacs
-    ./programs
-    ./skhd
     ./karabiner
     ./kitty
+    ./programs
+    ./skhd
+    ./vscode
     ./yabai
   ];
 
@@ -43,17 +44,8 @@ in
       nodePackages."@astrojs/language-server"
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
-    home.file = {
-    } // (if isDarwin then {
-
-    } else {});
-
     home.sessionVariables = {
       EDITOR = "vim";
     };
-
-    
   };
 }

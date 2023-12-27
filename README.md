@@ -11,9 +11,15 @@ I haven't configured any NixOS systems yet, but my goal is to keep macOS-specifi
 I'm also using Nix flakes -- I wish I knew enough about Nix to explain exactly what they are and why they're special.
 
 ## Layout
+
+I make pretty heavy use of [Nix modules](https://nixos.wiki/wiki/NixOS_modules) in this config. 
+In every directory, `default.nix` is the entrypoint.
+
 - `nix-darwin` default configuration lives in `darwin/`
 - `home-manager` default configuration lives in `home/`
-- host-specific overrides and functionality live in the `hosts/` directory. Each host has a `configuration.nix` file and a `home.nix` file.
+- host-specific overrides and functionality live in the `hosts/` directory. 
+  Each host has a `configuration.nix` file for system config and a `home.nix` 
+  file for home-manager.
 - dotfiles for specific applications can be found in directories under `home/` alongside their home-manager configuration.
 
 ## Inspiration

@@ -1,6 +1,7 @@
 { pkgs, config, lib, home-manager, ... }:
 
 let 
+    # TODO: make this work on non-mac systems
     emacs = (import ../../darwin/emacs.nix) { pkgs = pkgs; };
 in
 {
