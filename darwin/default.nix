@@ -50,4 +50,12 @@ let my-emacs = (import ./emacs.nix {pkgs = pkgs;}); in
     };
 
     services.skhd.enable = true;
+    # system.keyboard.userKeyMapping = [
+    #     # caps lock to escape
+    #     {
+    #         HIDKeyboardModifierMappingSrc = 30064771129; 
+    #         HIDKeyboardModifierMappingDst = 30064771113;
+    #     }
+    #     # 
+    # ]
 }
