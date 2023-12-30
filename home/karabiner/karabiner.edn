@@ -13,9 +13,9 @@
     :vscode ["com.microsoft.VSCode"]
   }
   :main [
-      ;; {:des "caps lock to escape" :rules [
-      ;;   [:caps_lock :escape]
-      ;; ]}
+      {:des "caps lock to escape" :rules [
+        [:caps_lock :escape]
+      ]}
       {:des "vim emulation with left option"
        :rules [
             [:!Oh :left_arrow]
