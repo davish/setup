@@ -144,6 +144,23 @@
     ;; File
     "f" '(:ignore t :which-key "file")
     "f f" '(find-file :which-key "find file")
+
+    ;; Window management
+    "w" '(:ignore t :which-key "windows")
+    "w h" 'evil-window-left
+    "w j" 'evil-window-down
+    "w k" 'evil-window-up
+    "w l" 'evil-window-right
+
+    "w v" 'evil-window-vsplit
+    "w -" 'split-window-below
+
+    "w d" 'evil-window-delete
+
+    "w H" 'evil-window-move-far-left
+    "w J" 'evil-window-move-very-bottom
+    "w K" 'evil-window-move-very-top
+    "w L" 'evil-window-move-far-right
     )
   (general-define-key
    "s-k" "<up>"
@@ -189,7 +206,13 @@
     "s-L" 'markdown-demote
     "s-j" 'markdown-next-visible-heading
     "s-k" 'markdown-previous-visible-heading
-    ))
+    )
+    (local-leader
+      "i" '(:ignore t :which-key "insert")
+      "i l" '(markdown-insert-list-item :which-key "list item")
+      "i h" '(markdown-insert-header :which-key "header")
+      "i f" '(markdown-insert-footnote :which-key "footnote")
+      ))
 
 (use-package markdown-mode
     :general
