@@ -8,6 +8,7 @@
       "workbench.colorTheme" = "Nord Light";
       "editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
       "editor.accessibilitySupport" = "off";
+      "editor.formatOnSave" = true;
 
       "vim.easymotion" = true;
       "vim.useSystemClipboard" = true;

@@ -59,6 +59,14 @@
       "s-l" #'org-shiftmetaright
       "s-RET" #'org-meta-return)
 
+(map! :after markdown-mode :map markdown-mode-map
+      "s-h" #'markdown-promote
+      "s-j" #'markdown-move-down
+      "s-k" #'markdown-move-up
+      "s-l" #'markdown-demote
+      ;; "s-RET" #'markdown-lin
+      )
+
 ;; Make Doom more spacemacs-y: SPC SPC for commands, SPC b f for projectile-find-file
 ;; (map! :leader "SPC" "M-x")
 (map! :leader :n "SPC" #'execute-extended-command)

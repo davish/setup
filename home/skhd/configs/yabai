@@ -27,8 +27,8 @@ shift + ctrl - f : yabai -m window --toggle zoom-parent
 ctrl - f : yabai -m window --toggle zoom-fullscreen
 
 # increase window size
-shift + alt - h : yabai -m window --resize left:-20:0
-shift + alt - j : yabai -m window --resize top:0:-20
-shift + alt - k : yabai -m window --resize top:0:20
-shift + alt - l : yabai -m window --resize left:20:0
+# shift + alt - h : yabai -m window --resize left:-20:0
+# shift + alt - j : yabai -m window --resize top:0:-20
+# shift + alt - k : yabai -m window --resize top:0:20
+# shift + alt - l : yabai -m window --resize left:20:0
 

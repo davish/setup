@@ -13,10 +13,10 @@ in
       components = [
         "general"
         "yabai"
-        "emacsclient"
+        "emacs_nodaemon"
       ];
     };
 
     services.yabai.enable = true;
-    services.emacs-daemon.enable = true;
+    # services.emacs-daemon.enable = true;
 }

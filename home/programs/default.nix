@@ -27,6 +27,7 @@
                 gpup = "git push -u origin $(git rev-parse --abbrev-ref HEAD)";
                 gst = "git status";
                 gd = "git diff";
+                gs = "git switch";
 
                 drs = "darwin-rebuild switch --flake ~/.config/nix";
 
