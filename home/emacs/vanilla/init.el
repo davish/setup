@@ -139,9 +139,11 @@
 
     ;; Buffer
     "b" '(:ignore t :which-key "buffer")
-    ;; Don't show an error because SPC b ESC is undefined, just abort
-    "b <escape>" '(keyboard-escape-quit :which-key t)
     "bd"  'kill-current-buffer
+
+    ;; File
+    "f" '(:ignore t :which-key "file")
+    "f f" '(find-file :which-key "find file")
     )
   (general-define-key
    "s-k" "<up>"
