@@ -25,6 +25,12 @@
             publisher = "wayou";
             version = "1.0.5";
             sha256 = "09056d31db7f7d970d21b1ff2b26c98b19cba82b33e6217553493e19f2fae4e9";
-      }
+        }
+        {
+              name = "vscode-typescript-next";
+              publisher = "ms-vscode";
+              version = "5.4.20240105";
+              sha256 = "aa27c28798bcac807b4f047a3b06454b17ce44807c0378ca8137eb9f00be828d";
+        }
     ];
 }

@@ -33,8 +33,8 @@
   (defun display-startup-echo-area-message ()
     (message ""))
   (defalias 'yes-or-no-p 'y-or-n-p)
-  (setq auto-save-file-name-transforms
-  `((".*" "~/.emacs-autosaves/" t)))
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs-autosaves/" t)))
+  (setq backup-directory-alist            '((".*" . "~/.emacs-autosaves")))
   )
 
 ;; utf-8 all the things
@@ -63,6 +63,7 @@
   :init
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
+  (setq-default fill-column 100)
   (setq scroll-step 1
         scroll-conservatively 10000)
   (set-face-attribute 'default nil
@@ -208,8 +209,10 @@
     "s-k" 'markdown-previous-visible-heading
     )
     (local-leader
+      "f" 'markdown-fill-paragraph
       "i" '(:ignore t :which-key "insert")
-      "i l" '(markdown-insert-list-item :which-key "list item")
+      "i i" '(markdown-insert-list-item :which-key "list item")
+      "i l" '(markdown-insert-link :which-key "link")
       "i h" '(markdown-insert-header :which-key "header")
       "i f" '(markdown-insert-footnote :which-key "footnote")
       ))
@@ -241,9 +244,9 @@
   (leader-keys
     ";" 'evilnc-comment-operator))
 
-;; (use-package vterm)
-;; (use-package vterm-toggle
-;;   :general
-;;   (leader-keys
-;;     "o" '(:ignore t :which-key "open...")
-;;     "o t" '(vterm-toggle :which-key "terminal")))
+(use-package vterm)
+(use-package vterm-toggle
+  :general
+  (leader-keys
+    "o" '(:ignore t :which-key "open...")
+    "o t" '(vterm-toggle :which-key "terminal")))
