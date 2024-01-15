@@ -4,6 +4,7 @@
     programs.vscode.userSettings = {
       "workbench.activityBar.location" = "hidden";
       "files.autoSave" = "onFocusChange";
+      "editor.lineNumbers" = "relative";
 
       "workbench.colorTheme" = "Nord Light";
       "editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
