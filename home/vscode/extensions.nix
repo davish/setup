@@ -15,9 +15,9 @@
             publisher = "huytd";
             version = "0.1.1";
             # Courtesy of pawalt.
-            # Start off with an empty string here, and when you get an error, it will have the actual hash
-            # as a base64 encoded string. we want hex encoded. Here's a oneliner:
-            # echo "base64 hash here" | nix run nixpkgs#python3 -- -c "import base64; print(base64.decodebytes(input().encode('utf-8')).hex())"
+            # Start off with lib.fakseHash here, and when you get an error, it will have the actual hash
+            # as a base64 encoded string. we want hex encoded. The nix cli has a utility for this:
+            # `nix hash to-base16 --type sha256 "sha256-<hash here>"`
             sha256 = "ab6186de3e63dc22c6174d89effa65cb028b9215269b61a7dcc892566899fb8f";
         }
         {
