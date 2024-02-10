@@ -3,9 +3,16 @@
 {
     programs.git = {
         enable = true;
+
         userName = "Davis Haupt";
         userEmail = "me@davishaupt.com";
-        ignores = [ ".DS_Store" ".direnv" ];
+
+        ignores = [
+            ".DS_Store"
+            ".direnv"
+            ".jj"
+        ];
+
         difftastic = {
             enable = true;
             display = "inline";

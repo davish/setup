@@ -10,9 +10,9 @@
             gst = "git status";
             gd = "git diff";
             gs = "git switch";
+            jgi = "jj init --git-repo=.";
 
-            drs = "darwin-rebuild switch --flake ~/.config/nix";
-            switch = "darwin-rebuild switch --flake ~/.config/nix";
+            sw = "darwin-rebuild switch --flake ~/.config/nix";
 
             dev = "nix develop -c $SHELL";
         };
