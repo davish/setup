@@ -216,6 +216,7 @@
       "i h" '(markdown-insert-header :which-key "header")
       "i f" '(markdown-insert-footnote :which-key "footnote")
       "i b" '(markdown-insert-bold :which-key "bold")
+      "i c" '(markdown-insert-code :which-key "code")
       ))
 
 (use-package markdown-mode

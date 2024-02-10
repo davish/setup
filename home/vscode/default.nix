@@ -1,4 +1,4 @@
-{pkgs, ...}: 
+{pkgs, lib, ...}: 
 {
   imports = [
     ./extensions.nix

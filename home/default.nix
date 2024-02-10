@@ -5,14 +5,17 @@ let
   emacs = (import ../darwin/emacs.nix) { pkgs = pkgs; };
 in
 {
+  # https://nix-community.github.io/home-manager/options.html
   imports = [
+    ./direnv
     ./emacs
+    ./git
     ./karabiner
     ./kitty
-    ./programs
     ./skhd
     ./vscode
     ./yabai
+    ./zsh
   ];
 
   config = {
@@ -47,6 +50,8 @@ in
     home.sessionVariables = {
       EDITOR = "vim";
     };
+
+    
 
     my.emacs.vanilla.enable = true;
   };

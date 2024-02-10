@@ -4,6 +4,7 @@
     programs.vscode.extensions = with pkgs.vscode-extensions; [
       astro-build.astro-vscode
       bbenoist.nix 
+      esbenp.prettier-vscode
       ocamllabs.ocaml-platform
       usernamehw.errorlens
       vscodevim.vim
