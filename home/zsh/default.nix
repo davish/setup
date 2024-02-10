@@ -1,10 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
     programs.zsh = {
         enable = true;
         shellAliases = {
-            rrc = "source ~/.zshrc";
+            rrc = "source ~/.zshenv && source ~/.zshrc";
             sw = "darwin-rebuild switch --flake ~/.config/nix";
 
             dev = "nix develop -c $SHELL";
@@ -18,12 +18,9 @@
             gd   = "git diff";
             gs   = "git switch";
         };
-        envExtra = ''
-            export PATH=$PATH:$HOME/.emacs.d/bin
-
-            function ancestors() {
-                git log --oneline --decorate --decorate-refs="heads" --simplify-by-decoration "main..HEAD" --format="%D" | tr ', ' '\n' | tr -s '\n'
-            }
-        '';
+        envExtra = lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n") [
+            ".emacs.d/bin"
+            "scripts"
+        ];
     };
 }

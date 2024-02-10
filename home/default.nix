@@ -13,6 +13,7 @@ in
     ./jujutsu
     ./karabiner
     ./kitty
+    ./scripts
     ./skhd
     ./vscode
     ./yabai
