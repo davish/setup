@@ -20,6 +20,10 @@
         };
         envExtra = ''
             export PATH=$PATH:$HOME/.emacs.d/bin
+
+            function ancestors() {
+                git log --oneline --decorate --decorate-refs="heads" --simplify-by-decoration "main..HEAD" --format="%D" | tr ', ' '\n' | tr -s '\n'
+            }
         '';
     };
 }
