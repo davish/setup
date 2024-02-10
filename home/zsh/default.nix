@@ -12,6 +12,7 @@
             gs = "git switch";
 
             drs = "darwin-rebuild switch --flake ~/.config/nix";
+            switch = "darwin-rebuild switch --flake ~/.config/nix";
 
             dev = "nix develop -c $SHELL";
         };
