@@ -10,6 +10,7 @@ in
     ./direnv
     ./emacs
     ./git
+    ./jujutsu
     ./karabiner
     ./kitty
     ./skhd
