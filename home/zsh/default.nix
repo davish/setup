@@ -21,6 +21,7 @@
         envExtra = lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n") [
             ".emacs.d/bin"
             "scripts"
+            "script-dev"
         ];
     };
 }

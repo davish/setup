@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-git log --oneline --decorate --decorate-refs="heads" --simplify-by-decoration "main..HEAD" --format="%D" | tr ', ' '\n' | tr -s '\n'

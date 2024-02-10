@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+head=${1:-"HEAD"}
+base=${2:-"main"}
+
+git log --oneline --decorate --decorate-refs="heads" --simplify-by-decoration "$base..$head" --format="%D" | tr ', ' '\n' | tr -s '\n'

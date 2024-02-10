@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+MAIN="main"
+
+new_base=${1:-$MAIN}
+
+for stack in $(git stack-top); do
+    git rebase $new_base --update-refs
+done

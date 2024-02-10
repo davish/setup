@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# All descendants of this branch, including itself
+descendants=$(git branch --contains | sed 's/^\* //')
+
+for branch in $descendants; do
+    # only output branches which themselves have no descendants
+    if [ $(git branch --contains "$branch" | grep -v "$branch" | wc -l) -eq 0 ]; then
+        echo "$branch"
+    fi
+done
