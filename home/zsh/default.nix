@@ -1,10 +1,18 @@
 { lib, config, ... }:
 
+let 
+    makeShellFunctions = functions: lib.strings.concatStrings (lib.attrsets.mapAttrsToList (name: value: "function ${name}() {${value}}\n") functions);
+in
 {
     options = {
         shell.paths = lib.mkOption {
             type = lib.types.listOf lib.types.string;
             default = [ ];
+        };
+
+        programs.zsh.shellFunctions = lib.mkOption {
+            type = lib.types.attrs;
+            default = {};
         };
     };
 
@@ -22,10 +30,14 @@
 
                 gcam = "git commit -am";
                 gp   = "git push";
-                gpup = "git push -u origin $(git rev-parse --abbrev-ref HEAD)";
                 gst  = "git status";
                 gd   = "git diff";
                 gs   = "git switch";
+                gcaa = "git commit -a --amend --no-edit";
+            };
+
+            shellFunctions = {
+                gmk = "git branch $1 && git switch $1;";
             };
 
             initExtra = ''
@@ -39,7 +51,10 @@
                 bindkey "^[[B" down-line-or-beginning-search
             '';
 
-            envExtra = lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n") config.shell.paths;
+            envExtra = ''
+            '' 
+            + makeShellFunctions config.programs.zsh.shellFunctions
+            + lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n") config.shell.paths;
         };
     };
 }
