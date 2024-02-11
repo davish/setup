@@ -4,15 +4,15 @@ REMOTE="origin"
 MAIN="main"
 
 if ! command -v gh &> /dev/null; then
-    echo "git stack-push: 'gh' must be installed to push stacks to GitHub."
+    echo "git stack push: 'gh' must be installed to push stacks to GitHub."
     exit 1
 fi
 
 DRY_RUN=""
 
-for branch in $(git stack-show); do
+for branch in $(git stack show); do
     title="pull request for $branch";
-    prev=$(git stack-show "$branch" | tail -n +2)
+    prev=$(git stack show "$branch" | tail -n +2)
     prev=${prev:-$MAIN}
     $DRY_RUN "git push -f $REMOTE $branch:$branch"
     $DRY_RUN "gh pr create --head $branch --base $prev"

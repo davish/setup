@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+git "stack-$1" "${@:2}"

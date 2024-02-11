@@ -22,6 +22,7 @@
             ".emacs.d/bin"
             "scripts"
             "script-dev"
+            "scripts/git-stack-scripts"
         ];
     };
 }
