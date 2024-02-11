@@ -1,8 +1,5 @@
 { lib, config, ... }:
 
-let 
-    makeShellFunctions = functions: lib.strings.concatStrings (lib.attrsets.mapAttrsToList (name: value: "function ${name}() {${value}}\n") functions);
-in
 {
     options = {
         shell.paths = lib.mkOption {
@@ -51,10 +48,16 @@ in
                 bindkey "^[[B" down-line-or-beginning-search
             '';
 
-            envExtra = ''
+            envExtra = 
+                let 
+                    makeShellFunctions = functions: lib.strings.concatStrings 
+                        (lib.attrsets.mapAttrsToList (name: value: "function ${name}() {${value}}\n") functions);
+                    addPaths = lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n"); 
+                in
+            ''
             '' 
             + makeShellFunctions config.programs.zsh.shellFunctions
-            + lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n") config.shell.paths;
+            + addPaths config.shell.paths;
         };
     };
 }
