@@ -2,7 +2,7 @@
 
 {
     home.file."scripts" = {
-        source = ../../scripts;
+        source = ./scripts;
     };
 
     shell.paths = [
