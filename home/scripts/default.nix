@@ -21,7 +21,7 @@ in
         };
     };
 
-    shell.paths = [
+    shell.executablePaths = [
         "scripts"
         "scripts/git-stack-scripts"
     ];

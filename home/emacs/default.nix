@@ -35,7 +35,7 @@ in
           fi
         '');
 
-        shell.paths = [ ".emacs.d/bin" ];
+        shell.executablePaths = [ ".emacs.d/bin" ];
     };
     
 }
