@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   programs.vscode.extensions = with pkgs.vscode-extensions; [
@@ -16,7 +16,7 @@
       publisher = "huytd";
       version = "0.1.1";
       # Courtesy of pawalt.
-      # Start off with lib.fakseHash here, and when you get an error, it will have the actual hash
+      # Start off with lib.fakeHash here, and when you get an error, it will have the actual hash
       # as a base64 encoded string. we want hex encoded. The nix cli has a utility for this:
       # `nix hash to-base16 --type sha256 "sha256-<hash here>"`
       sha256 = "ab6186de3e63dc22c6174d89effa65cb028b9215269b61a7dcc892566899fb8f";
@@ -32,6 +32,12 @@
       publisher = "ms-vscode";
       version = "5.4.20240105";
       sha256 = "aa27c28798bcac807b4f047a3b06454b17ce44807c0378ca8137eb9f00be828d";
+    }
+    {
+      name = "nixpkgs-fmt";
+      publisher = "b4dm4n";
+      version = "0.0.1";
+      sha256 = "bf3da4537e81d7190b722d90c0ba65fd204485f49696d203275afb4a8ac772bf";
     }
   ];
 }

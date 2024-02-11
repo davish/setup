@@ -54,8 +54,6 @@ in
       EDITOR = "vim";
     };
 
-
-
     my.emacs.vanilla.enable = true;
   };
 }
