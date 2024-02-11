@@ -34,6 +34,8 @@ in
             } clone $VERBOSE_ARG --depth=1 --single-branch "https://github.com/doomemacs/doomemacs.git" "$HOME/.emacs.d";
           fi
         '');
+
+        shell.paths = [ ".emacs.d/bin" ];
     };
     
 }
