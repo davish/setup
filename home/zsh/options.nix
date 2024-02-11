@@ -20,7 +20,15 @@
       envExtra =
         let
           makeShellFunctions = functions: lib.strings.concatStrings
-            (lib.attrsets.mapAttrsToList (name: value: "function ${name}() {${value}}\n") functions);
+            (lib.attrsets.mapAttrsToList
+              (name: value:
+                let
+                  prettyValue = builtins.concatStringsSep "\n" (
+                    map (line: "  ${line}") (lib.strings.splitString "\n" value)
+                  );
+                in
+                "function ${name}() {\n${prettyValue}\n}\n")
+              functions);
           addPaths = lib.strings.concatMapStrings (p: "export PATH=$PATH:$HOME/${p}\n");
         in
         makeShellFunctions config.programs.zsh.shellFunctions

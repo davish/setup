@@ -18,8 +18,8 @@
   };
 
   programs.zsh.shellFunctions = {
-    gmk = ''git branch $1 
-                git switch $1
-        '';
+    gmk = ''
+      git branch $1 
+      git switch $1'';
   };
 }
