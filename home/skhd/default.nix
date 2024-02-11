@@ -4,7 +4,7 @@
   options.services.skhd = {
     enable = lib.mkEnableOption "skhd configuration";
     components = lib.mkOption {
-      type = lib.types.listOf lib.types.string;
+      type = lib.types.listOf lib.types.str;
       default = [ ];
     };
   };
