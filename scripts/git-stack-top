@@ -1,11 +1,21 @@
 #!/usr/bin/env sh
 
-# All descendants of this branch, including itself
-descendants=$(git branch --contains | sed 's/^\* //')
+MAIN="main"
 
-for branch in $descendants; do
-    # only output branches which themselves have no descendants
-    if [ $(git branch --contains "$branch" | grep -v "$branch" | wc -l) -eq 0 ]; then
-        echo "$branch"
+# find the first commit between HEAD and the previous commit in the stack where the top is not the current branch, and report the leaves from that commit. 
+
+prev=$(git stack-show | tail -n +2)
+prev=${prev:-$MAIN}
+
+current=$(git rev-parse --abbrev-ref HEAD)
+
+for rev in $(git log --oneline --format="%H" main..HEAD); do
+    leaf=$(git stack-leaf $rev)
+    if [ "$leaf" != "$current" ]; then
+        # $rev is where the branch diverged from the stack.
+        git stack-leaf $rev | grep -v "^$current"
+        exit 0
     fi
 done
+exit 1
+

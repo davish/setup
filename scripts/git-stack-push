@@ -8,9 +8,7 @@ if ! command -v gh &> /dev/null; then
     exit 1
 fi
 
-current=$(git rev-parse --abbrev-ref HEAD)
-
-DRY_RUN="echo"
+DRY_RUN=""
 
 for branch in $(git stack-show); do
     title="pull request for $branch";
