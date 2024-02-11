@@ -1,29 +1,29 @@
 { ... }:
 
 {
-    programs.git = {
-        enable = true;
+  programs.git = {
+    enable = true;
 
-        userName = "Davis Haupt";
-        userEmail = "me@davishaupt.com";
+    userName = "Davis Haupt";
+    userEmail = "me@davishaupt.com";
 
-        ignores = [
-            ".DS_Store"
-            ".direnv"
-            ".jj"
-        ];
+    ignores = [
+      ".DS_Store"
+      ".direnv"
+      ".jj"
+    ];
 
-        difftastic = {
-            enable = true;
-            display = "inline";
-        };
-
-        extraConfig  = {
-            init.defaultBranch = "main";
-            push.autoSetupRemote = true;
-            pull.rebase = true;
-        };
+    difftastic = {
+      enable = true;
+      display = "inline";
     };
 
-    programs.gh.enable = true;
+    extraConfig = {
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+      pull.rebase = true;
+    };
+  };
+
+  programs.gh.enable = true;
 }

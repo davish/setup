@@ -1,6 +1,6 @@
 { pkgs, config, lib, home-manager, ... }:
 
-let 
+let
   isDarwin = pkgs.stdenv.isDarwin;
   emacs = (import ../darwin/emacs.nix) { pkgs = pkgs; };
 in
@@ -44,7 +44,8 @@ in
       tmux
       htop
       jetbrains-mono
-      (nerdfonts.override {fonts = [ "JetBrainsMono"]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nixpkgs-fmt
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
     ];
@@ -53,7 +54,7 @@ in
       EDITOR = "vim";
     };
 
-    
+
 
     my.emacs.vanilla.enable = true;
   };

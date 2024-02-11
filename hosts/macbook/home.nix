@@ -1,15 +1,15 @@
 { pkgs, ... }:
 
 {
-    imports = [
-        ../../home
-    ];
+  imports = [
+    ../../home
+  ];
 
-    services.skhd = {
-      enable = true;
-      components = [
-        "general"
-        "emacs_nodaemon"
-      ];
-    };
+  services.skhd = {
+    enable = true;
+    components = [
+      "general"
+      "emacs_nodaemon"
+    ];
+  };
 }

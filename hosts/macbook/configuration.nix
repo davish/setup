@@ -1,14 +1,14 @@
-{ pkgs, home-manager, ... }: 
+{ pkgs, home-manager, ... }:
 
 {
-    imports = [
-        ../../darwin
-    ];
+  imports = [
+    ../../darwin
+  ];
 
-    users.users.davishaupt = {
-        name = "davishaupt";
-        home = "/Users/davishaupt";
-    };
+  users.users.davishaupt = {
+    name = "davishaupt";
+    home = "/Users/davishaupt";
+  };
 
-    security.pam.enableSudoTouchIdAuth = true;
+  security.pam.enableSudoTouchIdAuth = true;
 }
