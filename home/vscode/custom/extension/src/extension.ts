@@ -16,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('davish-custom.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from davish-custom!');
+		vscode.window.showInformationMessage('Hello Galaxy from davish-custom!');
 	});
 
 	context.subscriptions.push(disposable);

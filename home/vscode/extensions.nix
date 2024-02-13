@@ -1,33 +1,21 @@
 { lib, self, pkgs, ... }:
 
 let
-  extension-flake = import ./custom/extension/flake.nix;
-  extension-outputs = extension-flake.outputs {
+  custom-extension-vsix = import ./custom/extension/derivation.nix {
     inherit self;
-    nixpkgs = pkgs;
+    inherit pkgs;
   };
-  custom-extension-vsix = builtins.trace "DAVISDEBUG HELLO" (extension-outputs.defaultPackage."aarch64-darwin");
-
-  pname = builtins.trace custom-extension-vsix "davish-custom";
-
+  pname = "davish-custom";
   publisher = "davish";
   custom-extension = pkgs.vscode-utils.buildVscodeExtension
     {
       name = "davish-custom";
       src = "${custom-extension-vsix}/${pname}.zip";
-
+      version = "0.0.1";
 
       vscodeExtUniqueId = "${publisher}.${pname}";
       vscodeExtPublisher = publisher;
       vscodeExtName = pname;
-
-      # nativeBuildInputs = lib.optionals setDefaultServerPath [ jq moreutils ];
-
-      # preInstall = lib.optionalString setDefaultServerPath ''
-      #   jq '.contributes.configuration.properties."rust-analyzer.server.path".default = $s' \
-      #     --arg s "${rust-analyzer}/bin/rust-analyzer" \
-      #     package.json | sponge package.json
-      # '';
 
       meta = {
         description = "Custom code for Davis Haupt";
