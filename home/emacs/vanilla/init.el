@@ -63,7 +63,7 @@
   :init
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
-  (setq-default fill-column 100)
+  (setq-default fill-column 90)
   (setq scroll-step 1
         scroll-conservatively 10000)
   (set-face-attribute 'default nil
