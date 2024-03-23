@@ -9,9 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = inputs@{ self, nix-darwin, home-manager, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, home-manager, nixpkgs, mac-app-util }:
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#davish-desktop
@@ -19,12 +20,14 @@
         modules = [
           ./hosts/macmini/configuration.nix
 
+          mac-app-util.darwinModules.default
+
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
-            home-manager.users.davish = import ./hosts/macmini/home.nix;
+            home-manager.users.davish.imports = [ ./hosts/macmini/home.nix mac-app-util.homeManagerModules.default ];
           }
         ];
       };
@@ -33,12 +36,14 @@
         modules = [
           ./hosts/macbook/configuration.nix
 
+          mac-app-util.darwinModules.default
+
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
-            home-manager.users.davishaupt = import ./hosts/macbook/home.nix;
+            home-manager.users.davishaupt.imports = [ ./hosts/macbook/home.nix mac-app-util.homeManagerModules.default ];
           }
         ];
       };
