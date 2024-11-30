@@ -3,7 +3,6 @@
 {
   programs.jujutsu = {
     enable = true;
-    enableZshIntegration = true;
     settings = {
       user = {
         name = "Davis Haupt";

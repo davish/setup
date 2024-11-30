@@ -198,6 +198,16 @@
    "e b" '(eval-buffer :which-key "eval buffer")
    ))
 
+
+(defun my-markdown-bold-and-link (start end)
+  "Bold the selected markdown text and then insert a link."
+  (interactive "r")
+  (let ((selected-text (buffer-substring-no-properties start end)))
+    (delete-region start end)
+    (insert (format "**%s**" selected-text))
+    (markdown-insert-link)))
+
+
 (use-package markdown-mode
     :general
     (:keymaps 'markdown-mode-map
@@ -217,7 +227,7 @@
       "i f" '(markdown-insert-footnote :which-key "footnote")
       "i b" '(markdown-insert-bold :which-key "bold")
       "i c" '(markdown-insert-code :which-key "code")
-      ))
+      "i t" '(my-markdown-bold-and-link :which-key "link and bold")))
 
 (use-package markdown-mode
     :general

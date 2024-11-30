@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, nix-vscode-extensions, ... }:
 
 let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
 {
@@ -38,6 +38,8 @@ let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
 
   system.defaults.CustomUserPreferences = {
     # "com.google.Chrome" = {

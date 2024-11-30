@@ -3,13 +3,13 @@
 {
   options = {
     shell.executablePaths = lib.mkOption {
-      description = "paths relative to $HOME to be added to $PATH.";
+      # description = "paths relative to $HOME to be added to $PATH.";
       type = lib.types.listOf lib.types.str;
       default = [ ];
     };
 
     programs.zsh.shellFunctions = lib.mkOption {
-      description = "Define functions that will be active in your shell config. Unlike aliases, functions *can* take arguments like $1";
+      # description = "Define functions that will be active in your shell config. Unlike aliases, functions *can* take arguments like $1";
       type = lib.types.attrs;
       default = { };
     };

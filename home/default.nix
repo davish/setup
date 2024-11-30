@@ -40,15 +40,18 @@ in
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
-    home.packages = with pkgs; [
-      tmux
-      htop
-      jetbrains-mono
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      nixpkgs-fmt
-      nodePackages.typescript-language-server
-      nodePackages."@astrojs/language-server"
-    ];
+    home.packages = with pkgs;
+      [
+        tmux
+        htop
+        jetbrains-mono
+        (nerdfonts.override {
+          fonts = [ "JetBrainsMono" ];
+        })
+        nixpkgs-fmt
+        nodePackages.typescript-language-server
+        nodePackages."@astrojs/language-server"
+      ];
 
     home.sessionVariables = {
       EDITOR = "vim";
