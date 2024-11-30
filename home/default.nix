@@ -45,9 +45,7 @@ in
         tmux
         htop
         jetbrains-mono
-        (nerdfonts.override {
-          fonts = [ "JetBrainsMono" ];
-        })
+        nerd-fonts.jetbrains-mono
         nixpkgs-fmt
         nodePackages.typescript-language-server
         nodePackages."@astrojs/language-server"
