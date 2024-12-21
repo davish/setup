@@ -21,7 +21,14 @@
       in
       {
         "vim.normalModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch vSpaceCodeMajorMode ];
-        "vim.visualModeKeyBindingsNonRecursive" = [ vSpaceCodeLaunch vSpaceCodeMajorMode ];
+        "vim.visualModeKeyBindingsNonRecursive" = [
+          vSpaceCodeLaunch
+          vSpaceCodeMajorMode
+          {
+            before = [ "s" ];
+            after = [ "S" ];
+          }
+        ];
 
         "vspacecode.bindingOverrides" = [
           {
@@ -37,15 +44,21 @@
             "command" = "workbench.action.showEditorsInActiveGroup";
           }
           {
-            "keys" = "o";
-            "name" = "Open Application...";
+            "keys" = "t";
+            "name" = "Toggle..";
             "type" = "bindings";
             "bindings" = [
               {
                 "key" = "t";
-                "name" = "Open Terminal";
+                "name" = "Toggle Terminal";
                 "type" = "command";
                 "command" = "workbench.action.terminal.toggleTerminal";
+              }
+              {
+                "key" = "b";
+                "name" = "Toggle Sidebar";
+                "type" = "command";
+                "command" = "workbench.action.toggleSidebarVisibility";
               }
             ];
           }
@@ -69,5 +82,8 @@
         when = "terminalFocus";
       }
     ];
+
+
   };
 }
+

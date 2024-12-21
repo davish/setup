@@ -15,7 +15,9 @@ let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  services.karabiner-elements.enable = true;
+
+  # getting errors with nix's karabiner, so unfortunately I'm running it outside of Nix for now.
+  # services.karabiner-elements.enable = true;
 
   # nix.package = pkgs.nix;
 

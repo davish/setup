@@ -1,4 +1,4 @@
-{ :simlayers {:symbol-mode {:key :right_option}}
+{ :simlayers {:symbol-mode {:key :right_command}}
   :profiles {:Default {:default true
              :sim 25
              :delay 10
