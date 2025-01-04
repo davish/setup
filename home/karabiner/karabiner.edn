@@ -2,7 +2,7 @@
   :profiles {:Default {:default true
              :sim 25
              :delay 10
-             :alone 250}}
+             :alone 100}}
   :devices {
     :sculpt [{:vendor_id 1118, :product_id 1957 }]
     :laptop [{:vendor_id 1452, :product_id 832  } {:vendor_id 1452, :product_id 641  }]

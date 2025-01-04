@@ -6,7 +6,7 @@
   };
 
   programs.kitty = {
-    enable = true;
+    enable = false;
     shellIntegration.enableZshIntegration = true;
     font.name = "JetBrains Mono";
 
