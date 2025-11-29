@@ -1,31 +1,32 @@
 { lib, self, pkgs, ... }:
-let
-  custom-extension-vsix = import ./custom/extension/derivation.nix {
-    inherit self;
-    inherit pkgs;
-  };
-  pname = "davish-custom";
-  publisher = "davish";
-  custom-extension = pkgs.vscode-utils.buildVscodeExtension
-    {
-      name = "davish-custom";
-      pname = pname;
-      src = "${custom-extension-vsix}/${pname}.zip";
-      version = "0.0.1";
-
-      vscodeExtUniqueId = "${publisher}.${pname}";
-      vscodeExtPublisher = publisher;
-      vscodeExtName = pname;
-
-      meta = {
-        description = "Custom code for Davis Haupt";
-        homepage = "https://davi.sh";
-        license = [ lib.licenses.mit ];
-        maintainers = [ ];
-        platforms = lib.platforms.all;
-      };
-    };
-in
+# TODO: Re-enable custom extension once vsce is fixed for apple_sdk_11_0 removal
+# let
+#   custom-extension-vsix = import ./custom/extension/derivation.nix {
+#     inherit self;
+#     inherit pkgs;
+#   };
+#   pname = "davish-custom";
+#   publisher = "davish";
+#   custom-extension = pkgs.vscode-utils.buildVscodeExtension
+#     {
+#       name = "davish-custom";
+#       pname = pname;
+#       src = "${custom-extension-vsix}/${pname}.zip";
+#       version = "0.0.1";
+#
+#       vscodeExtUniqueId = "${publisher}.${pname}";
+#       vscodeExtPublisher = publisher;
+#       vscodeExtName = pname;
+#
+#       meta = {
+#         description = "Custom code for Davis Haupt";
+#         homepage = "https://davi.sh";
+#         license = [ lib.licenses.mit ];
+#         maintainers = [ ];
+#         platforms = lib.platforms.all;
+#       };
+#     };
+# in
 {
   programs.vscode.extensions =
     with pkgs.vscode-marketplace;
@@ -42,7 +43,7 @@ in
       wayou.vscode-todo-highlight
       ms-vscode.vscode-typescript-next
       b4dm4n.nixpkgs-fmt
-      custom-extension
+      # custom-extension  # Disabled: vsce uses deprecated darwin.apple_sdk_11_0
     ];
   # ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
   #   {

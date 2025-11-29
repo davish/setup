@@ -8,15 +8,4 @@ in
     ../../home
   ];
 
-  services.skhd = {
-    enable = true;
-    components = [
-      "general"
-      "yabai"
-      "emacs_nodaemon"
-    ];
-  };
-
-  services.yabai.enable = true;
-  # services.emacs-daemon.enable = true;
 }

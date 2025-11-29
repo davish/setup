@@ -12,9 +12,9 @@ pkgs.stdenv.mkDerivation
     pkg-config
     libsecret
     nodejs_20
-  ] ++ lib.optionals stdenv.isDarwin [
-    darwin.apple_sdk.frameworks.AppKit
-    darwin.apple_sdk.frameworks.Security
+  ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+    pkgs.darwin.apple_sdk.frameworks.AppKit
+    pkgs.darwin.apple_sdk.frameworks.Security
   ];
 
   installPhase = ''

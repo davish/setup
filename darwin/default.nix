@@ -13,9 +13,6 @@ let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
 
   homebrew = import ./homebrew.nix // { enable = true; };
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
   # getting errors with nix's karabiner, so unfortunately I'm running it outside of Nix for now.
   # services.karabiner-elements.enable = true;
 
@@ -50,14 +47,4 @@ let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
     #     };
     # };
   };
-
-  services.skhd.enable = true;
-  # system.keyboard.userKeyMapping = [
-  #     # caps lock to escape
-  #     {
-  #         HIDKeyboardModifierMappingSrc = 30064771129; 
-  #         HIDKeyboardModifierMappingDst = 30064771113;
-  #     }
-  #     # 
-  # ]
 }

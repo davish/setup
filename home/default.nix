@@ -15,9 +15,7 @@ in
     ./karabiner
     ./kitty
     ./scripts
-    ./skhd
     ./vscode
-    ./yabai
     ./zsh
   ];
 

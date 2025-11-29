@@ -25,6 +25,7 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#davish-desktop
       darwinConfigurations."davish-desktop" = nix-darwin.lib.darwinSystem {
+        specialArgs = inputs;
         modules = [
           ./hosts/macmini/configuration.nix
 
@@ -35,9 +36,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.verbose = true;
+            # TODO: Re-enable once iterate package from gitlab.common-lisp.net is fixed
+            # home-manager.sharedModules = [
+            #   mac-app-util.homeManagerModules.default
+            # ];
             home-manager.users.davish.imports = [
               ./hosts/macmini/home.nix
-              # mac-app-util.homeManagerModules.default
             ];
           }
         ];
