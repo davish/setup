@@ -11,7 +11,7 @@ let my-emacs = (import ./emacs.nix { pkgs = pkgs; }); in
     gnutls # for TLS connectivity
   ];
 
-  homebrew = import ./homebrew.nix // { enable = true; };
+  # homebrew = import ./homebrew.nix // { enable = true; };
 
   # getting errors with nix's karabiner, so unfortunately I'm running it outside of Nix for now.
   # services.karabiner-elements.enable = true;

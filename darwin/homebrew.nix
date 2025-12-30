@@ -1,5 +1,5 @@
 {
-  onActivation.cleanup = "uninstall";
+  # onActivation.cleanup = "uninstall";
   taps = [
 
   ];

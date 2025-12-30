@@ -5,10 +5,12 @@
     ../../darwin
   ];
 
+  system.primaryUser = "davishaupt";
+
   users.users.davishaupt = {
     name = "davishaupt";
     home = "/Users/davishaupt";
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 }
