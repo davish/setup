@@ -68,5 +68,27 @@
           }
         ];
       };
+
+      darwinConfigurations."air2" = nix-darwin.lib.darwinSystem {
+        specialArgs = inputs;
+        modules = [
+          ./hosts/air2/configuration.nix
+
+          mac-app-util.darwinModules.default
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
+            home-manager.sharedModules = [
+              mac-app-util.homeManagerModules.default
+            ];
+            home-manager.users.dhaupt.imports = [
+              ./hosts/macbook/home.nix
+            ];
+          }
+        ];
+      };
     };
 }

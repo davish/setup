@@ -6,18 +6,18 @@ let
 in
 {
   # https://nix-community.github.io/home-manager/options.html
-  imports = [
-    ./direnv
-    ./emacs
-    ./git
-    ./ghostty
-    ./jujutsu
-    ./karabiner
-    ./kitty
-    ./scripts
-    ./vscode
-    ./zsh
-  ];
+  # imports = [
+  #   ./direnv
+  #   ./emacs
+  #   ./git
+  #   ./ghostty
+  #   ./jujutsu
+  #   ./karabiner
+  #   ./kitty
+  #   ./scripts
+  #   ./vscode
+  #   ./zsh
+  # ];
 
   config = {
     # Home Manager needs a bit of information about you and the paths it should
@@ -41,13 +41,9 @@ in
     # environment.
     home.packages = with pkgs;
       [
-        tmux
-        htop
         jetbrains-mono
         nerd-fonts.jetbrains-mono
         nixpkgs-fmt
-        nodePackages.typescript-language-server
-        nodePackages."@astrojs/language-server"
       ];
 
     home.sessionVariables = {
